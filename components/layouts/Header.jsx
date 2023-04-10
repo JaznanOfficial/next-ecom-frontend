@@ -28,7 +28,12 @@ const Header = () => {
                 <div className="flex flex-wrap items-center">
                     <div className="flex-shrink-0 mr-5">
                         <a href="/">
-                            <Image src="/images/logo.png" height="40" width="120" alt="BuyItNow" />
+                            <Image
+                                src="https://img.freepik.com/premium-vector/creative-abstract-modern-ecommerce-logo-design-colorful-gradient-online-shopping-logo-template_852937-147.jpg?w=2000"
+                                height="40"
+                                width="120"
+                                alt="BuyItNow"
+                            />
                         </a>
                     </div>
                     <Search />
@@ -73,9 +78,12 @@ const Header = () => {
                         )} */}
                         <Link href="/me">
                             <div className="flex items-center mb-4 space-x-3 mt-4 cursor-pointer">
-                                <img
+                                <Image
                                     className="w-10 h-10 rounded-full"
-                                    src={"/images/default.png"}
+                                    src=""
+                                    width={40}
+                                    height={40}
+                                    alt="logo"
                                 />
                                 <div className="space-y-1 font-medium">
                                     <p>
