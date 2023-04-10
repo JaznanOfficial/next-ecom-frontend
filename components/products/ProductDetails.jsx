@@ -3,10 +3,11 @@
 import React, { useRef, useContext } from "react";
 import StarRatings from "react-star-ratings";
 import BreadCrumbs from "../layouts/BreadCrumbs";
-import CartContext from "@/context/CartContext";
+// import CartContext from "@/context/CartContext";
 
 const ProductDetails = ({ product }) => {
-    const { addItemToCart } = useContext(CartContext);
+    console.log(product);
+    // const { addItemToCart } = useContext(CartContext);
     const imgRef = useRef(null);
 
     const setImgPreview = (url) => {
@@ -15,16 +16,16 @@ const ProductDetails = ({ product }) => {
 
     const inStock = product?.stock >= 1;
 
-    const addToCartHandler = () => {
-        addItemToCart({
-            product: product._id,
-            name: product.name,
-            price: product.price,
-            image: product.images[0].url,
-            stock: product.stock,
-            seller: product.seller,
-        });
-    };
+    // const addToCartHandler = () => {
+    //     addItemToCart({
+    //         product: product._id,
+    //         name: product.name,
+    //         price: product.price,
+    //         image: product.images[0].url,
+    //         stock: product.stock,
+    //         seller: product.seller,
+    //     });
+    // };
 
     const breadCrumbs = [
         { name: "Home", url: "/" },
@@ -57,6 +58,7 @@ const ProductDetails = ({ product }) => {
                             <div className="space-x-2 overflow-auto text-center whitespace-nowrap">
                                 {product?.images?.map((img) => (
                                     <a
+                                        key={img.url}
                                         className="inline-block border border-gray-200 p-1 rounded-md hover:border-green-500 cursor-pointer"
                                         onClick={() => setImgPreview(img?.url)}
                                     >
@@ -106,7 +108,7 @@ const ProductDetails = ({ product }) => {
                             <div className="flex flex-wrap gap-2 mb-5">
                                 <button
                                     className="px-4 py-2 inline-block text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700"
-                                    onClick={addToCartHandler}
+                                    // onClick={addToCartHandler}
                                     disabled={!inStock}
                                 >
                                     <i className="fa fa-shopping-cart mr-2"></i>

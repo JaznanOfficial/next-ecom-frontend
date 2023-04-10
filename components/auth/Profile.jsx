@@ -3,10 +3,10 @@
 import React, { useContext } from "react";
 import UserAddresses from "../user/UserAddresses";
 import Link from "next/link";
-import AuthContext from "@/context/AuthContext";
+// import AuthContext from "@/context/AuthContext";
 
 const Profile = ({ addresses }) => {
-    const { user } = useContext(AuthContext);
+    // const { user } = useContext(AuthContext);
 
     return (
         <>
@@ -14,15 +14,15 @@ const Profile = ({ addresses }) => {
                 <div className="relative">
                     <img
                         className="w-16 h-16 rounded-full mr-4"
-                        src={user?.avatar ? user?.avatar?.url : "/images/default.png"}
-                        alt={user?.name}
+                        src={"/images/default.png"}
+                        alt={"user"}
                     />
                 </div>
                 <figcaption>
-                    <h5 className="font-semibold text-lg">{user?.name}</h5>
+                    <h5 className="font-semibold text-lg">{"name"}</h5>
                     <p>
-                        <b>Email:</b> {user?.email} | <b>Joined On:</b>
-                        {user?.createdAt.substring(0, 10)}
+                        <b>Email:</b> {"email@email.com"} | <b>Joined On:</b>
+                        {10 - 5 - 2023}
                     </p>
                 </figcaption>
             </figure>

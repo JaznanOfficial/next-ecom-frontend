@@ -2,21 +2,23 @@ import React, { useContext } from "react";
 import Link from "next/link";
 import StarRatings from "react-star-ratings";
 import Image from "next/image";
-import CartContext from "@/context/CartContext";
+// import CartContext from "@/context/CartContext";
 
 const ProductItem = ({ product }) => {
-    const { addItemToCart } = useContext(CartContext);
+    // console.log(product);
+    const { name, description, price, images, _id, ratings, stock } = product || {};
+    // const { addItemToCart } = useContext(CartContext);
 
-    const addToCartHandler = () => {
-        addItemToCart({
-            product: product._id,
-            name: product.name,
-            price: product.price,
-            image: product.images[0].url,
-            stock: product.stock,
-            seller: product.seller,
-        });
-    };
+    // const addToCartHandler = () => {
+    //     addItemToCart({
+    //         product: product._id,
+    //         name: product.name,
+    //         price: product.price,
+    //         image: product.images[0].url,
+    //         stock: product.stock,
+    //         seller: product.seller,
+    //     });
+    // };
 
     return (
         <article className="border border-gray-200 overflow-hidden bg-white shadow-sm rounded mb-5">
@@ -29,28 +31,19 @@ const ProductItem = ({ product }) => {
                             position: "relative",
                         }}
                     >
-                        <Image
-                            src={
-                                product?.images[0]
-                                    ? product?.images[0].url
-                                    : "/images/default_product.png"
-                            }
-                            alt="product anme"
-                            height="240"
-                            width="240"
-                        />
+                        <Image src={images[0]?.url} alt={name} height="240" width="240" />
                     </div>
                 </div>
                 <div className="md:w-2/4">
                     <div className="p-4">
-                        <Link href={`/product/${product._id}`} className="hover:text-green-600">
-                            {product.name}
+                        <Link href={`/product/${_id}`} className="hover:text-green-600">
+                            {name}
                         </Link>
                         <div className="flex flex-wrap items-center space-x-2 mb-2">
                             <div className="ratings">
                                 <div className="my-1">
                                     <StarRatings
-                                        rating={product?.ratings}
+                                        rating={ratings}
                                         starRatedColor="#ffb829"
                                         numberOfStars={5}
                                         starDimension="18px"
@@ -60,22 +53,20 @@ const ProductItem = ({ product }) => {
                                 </div>
                             </div>
                             <b className="text-gray-300">•</b>
-                            <span className="ml-1 text-yellow-500">{product?.ratings}</span>
+                            <span className="ml-1 text-yellow-500">{stock}</span>
                         </div>
-                        <p className="text-gray-500 mb-2">
-                            {product?.description.substring(0, 150)}...
-                        </p>
+                        <p className="text-gray-500 mb-2">{description.substring(0, 150)}...</p>
                     </div>
                 </div>
                 <div className="md:w-1/4 border-t lg:border-t-0 lg:border-l border-gray-200">
                     <div className="p-5">
-                        <span className="text-xl font-semibold text-black">${product?.price}</span>
+                        <span className="text-xl font-semibold text-black">${price}</span>
 
                         <p className="text-green-500">Free Shipping</p>
                         <div className="my-3">
                             <a
                                 className="px-4 py-2 inline-block text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700 cursor-pointer"
-                                onClick={addToCartHandler}
+                                // onClick={addToCartHandler}
                             >
                                 {" "}
                                 Add to Cart{" "}

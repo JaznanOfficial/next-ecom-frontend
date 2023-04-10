@@ -3,12 +3,13 @@ import axios from "axios";
 import React from "react";
 
 const getProductDetails = async (id) => {
-    const { data } = await axios.get(`${process.env.API_URL}/products/${id}`);
-    return data?.product;
+    const { data } = await axios.get(`${process.env.API_URL}/products?_id=${id}`);
+    return data;
 };
 
 const ProductDetailsPage = async ({ params }) => {
-    const product = await getProductDetails(params.id);
+    const product = await getProductDetails(params._id);
+    // console.log(product);
 
     return <ProductDetails product={product} />;
 };

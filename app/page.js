@@ -23,7 +23,7 @@ const getProducts = async (searchParams) => {
 
 const HomePage = async ({ searchParams }) => {
     const productsData = await getProducts(searchParams);
-
+    // console.log(productsData);
     return <ListProducts data={productsData} />;
 };
 
