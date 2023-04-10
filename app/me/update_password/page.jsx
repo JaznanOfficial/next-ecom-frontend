@@ -1,8 +1,10 @@
-import UpdatePassword from "@/components/auth/UpdatePassword";
+// import UpdatePassword from "@/components/auth/UpdatePassword";
 import React from "react";
 
 const UpdatePasswordPage = () => {
-  return <UpdatePassword />;
+    return {
+        /* <UpdatePassword /> */
+    };
 };
 
 export default UpdatePasswordPage;
