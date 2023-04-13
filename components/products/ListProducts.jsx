@@ -15,9 +15,11 @@ const ListProducts = ({ data }) => {
                     <Filters />
 
                     <main className="md:w-2/3 lg:w-3/4 px-3">
-                        {data.map((product) => (
-                            <ProductItem key={product._id} product={product} />
-                        ))}
+                        {data
+                            ? data?.map((product) => (
+                                  <ProductItem key={product._id} product={product} />
+                              ))
+                            : "No items found"}
 
                         <CustomPagination resPerPage={2} productsCount={data?.length} />
                     </main>
