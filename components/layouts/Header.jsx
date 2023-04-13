@@ -4,8 +4,8 @@ import React, { useContext, useEffect } from "react";
 import Link from "next/link";
 import Search from "./Search";
 import Image from "next/image";
-// import CartContext from "@/context/CartContext";
-// import { useSession } from "next-auth/react";
+import CartContext from "@/context/CartContext";
+import { useSession } from "next-auth/react";
 // import AuthContext from "@/context/AuthContext";
 
 const Header = () => {
@@ -19,8 +19,9 @@ const Header = () => {
     //     }
     // }, [data]);
 
-    // const { cart } = useContext(CartContext);
-    // const cartItems = cart?.cartItems;
+    const { cart } = useContext(CartContext);
+    const { cartItems } = cart || {};
+    console.log(cartItems);
 
     return (
         <header className="bg-white py-2 border-b">
@@ -45,7 +46,7 @@ const Header = () => {
                         >
                             <i className="text-gray-400 w-5 fa fa-shopping-cart"></i>
                             <span className="hidden lg:inline ml-1">
-                                Cart (<b>{0}</b>)
+                                Cart (<b>{cartItems?.length}</b>)
                             </span>
                         </Link>
                         {/* {!user ? (

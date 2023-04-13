@@ -1,5 +1,6 @@
 import Header from "@/components/layouts/Header";
 import "./globals.css";
+import { GlobalProvider } from "./GlobalProvider";
 // import { GlobalProvider } from "./GlobalProvider";
 
 export const metadata = {
@@ -18,10 +19,10 @@ export default function RootLayout({ children }) {
                 />
             </head>
             <body>
-                {/* <GlobalProvider> */}
-                <Header />
-                {children}
-                {/* </GlobalProvider> */}
+                <GlobalProvider>
+                    <Header />
+                    {children}
+                </GlobalProvider>
             </body>
         </html>
     );
