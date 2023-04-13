@@ -21,7 +21,7 @@ const Header = () => {
 
     const { cart } = useContext(CartContext);
     const { cartItems } = cart || {};
-    console.log(cartItems);
+    // console.log(cartItems);
 
     return (
         <header className="bg-white py-2 border-b">
